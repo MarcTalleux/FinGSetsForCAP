@@ -1062,7 +1062,12 @@ InstallMethod( SkeletalCategoryOfFinGSetsWithFabianDataStructure,
     end;
     
     ##
-    object_datum := { SkeletalFinGSetsWithFabianDataStructure, Omega } -> AsList( Omega );
+    object_datum :=
+      function ( SkeletalFinGSetsWithFabianDataStructure, Omega )
+        
+        return AsList( Omega );
+        
+    end;
     
     ##
     morphism_datum_type :=
@@ -1185,7 +1190,7 @@ InstallMethod( SkeletalCategoryOfFinGSetsWithFabianDataStructure,
     SetFabiansSkeletalFinGSets( SkeletalFinGSetsWithFabianDataStructure, SkeletalFinGSets( group ) );
     
     if CAP_NAMED_ARGUMENTS.FinalizeCategory then
-        Finalize( SkeletalFinGSetsWithFabianDataStructure : FinalizeCategory := CAP_NAMED_ARGUMENTS.FinalizeCategory );
+        Finalize( SkeletalFinGSetsWithFabianDataStructure );
     fi;
     
     return SkeletalFinGSetsWithFabianDataStructure;

@@ -38,7 +38,12 @@ InstallMethod( SkeletalCategoryOfFinGSets,
     end;
     
     ##
-    object_datum := { SkeletalFinGSets, Omega } -> PairOfSumAndListOfMultiplicities( Omega );
+    object_datum :=
+      function ( SkeletalFinGSets, Omega )
+        
+        return PairOfSumAndListOfMultiplicities( Omega );
+        
+    end;
     
     ##
     morphism_datum_type :=
@@ -401,7 +406,7 @@ InstallMethod( SkeletalCategoryOfFinGSets,
     #############
     
     if CAP_NAMED_ARGUMENTS.FinalizeCategory then
-        Finalize( SkeletalFinGSets : FinalizeCategory := CAP_NAMED_ARGUMENTS.FinalizeCategory );
+        Finalize( SkeletalFinGSets );
     fi;
     
     return SkeletalFinGSets;
