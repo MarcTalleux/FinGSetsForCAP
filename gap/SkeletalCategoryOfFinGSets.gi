@@ -198,7 +198,7 @@ InstallMethod( SkeletalCategoryOfFinGSets,
     
     SetUnderlyingGroup( SkeletalFinGSets, group );
     SetUnderlyingGroupAsCategory( SkeletalFinGSets, GroupAsCategory( group ) );
-
+    
     PreimagePositions :=
       function ( SkeletalFinGSets, phi, image_positions )
         local l, ms, map, preimage;
