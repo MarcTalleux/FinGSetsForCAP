@@ -225,8 +225,8 @@ InstallMethod( SkeletalCategoryOfFinGSets,
         
         m_target := PairOfSumAndListOfMultiplicities( target_pi )[2];
         
-        preimage := List( [ 0 .. l-1 ], o -> List( [ 0 .. m_target[ o + 1 ] - 1 ], i -> PreimagePositions( SkeletalFinGSets, phi, [ [ o , i ] ] )[ 1 ] ) );
-        
+        preimage := List( [ 0 .. l-1 ], o -> List( [ 0 .. m_target[ o + 1 ] - 1 ], i -> PreimagePositions( SkeletalFinGSets, pi, [ [ o , i ] ] )[ 1 ] ) );
+
         dphi := PairOfLists( phi );
         mor_pi := PairOfLists( pi )[2];
         
