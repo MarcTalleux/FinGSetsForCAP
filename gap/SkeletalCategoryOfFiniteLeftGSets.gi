@@ -251,7 +251,7 @@ InstallMethod( SkeletalCategoryOfFiniteLeftGSets,
         
         mor := List( [ 1 .. l ], o ->
                      List( [ 1 .. m_target[o] ], i ->
-                           dphi[2][1 + preimage[o][i][1]][1 + preimage[o][i][2]] * Inverse( mor_pi[1 + preimage[o][i][1]][1 + preimage[o][i][2]] ) ) );
+                           Inverse( mor_pi[1 + preimage[o][i][1]][1 + preimage[o][i][2]] ) * dphi[2][1 + preimage[o][i][1]][1 + preimage[o][i][2]] ) );
         
         return MorphismConstructor( target_pi, Pair( map, mor ), Target( phi ) );
         
@@ -329,7 +329,7 @@ InstallMethod( SkeletalCategoryOfFiniteLeftGSets,
                                     Add( Last( component_target ), [ pos1, pos2 ] );
                                     Add( new_image, [ pos1, pos2 ] );
                                     
-                                    H[1 + pos1][1 + pos2] := H[1 + maps[i][1 + o_x[1]][1][1 + o_x[2]]][1 + maps[i][1 + o_x[1]][2][1 + o_x[2]]] * mors[i][1 + o_x[1]][1 + o_x[2]] * Inverse( mors[j][1 + o_x[1]][1 + o_x[2]] );
+                                    H[1 + pos1][1 + pos2] := Inverse( mors[j][1 + o_x[1]][1 + o_x[2]] ) * mors[i][1 + o_x[1]][1 + o_x[2]] * H[1 + maps[i][1 + o_x[1]][1][1 + o_x[2]]][1 + maps[i][1 + o_x[1]][2][1 + o_x[2]]];
                                     
                                 fi;
                                 
@@ -411,7 +411,7 @@ InstallMethod( SkeletalCategoryOfFiniteLeftGSets,
                      Pair( List( [ 1 .. m_target[o] ], i -> -1 + subgroups_pos[componentpos[o][i]] ),
                            List( [ 1 .. m_target[o] ], i -> map_pos[componentpos[o][i]] ) ) );
         
-        mor := List( [ 1 .. l ], o -> List( [ 1 .. m_target[o] ], i -> conjugates[componentpos[o][i]] * H[o][i] ) );
+        mor := List( [ 1 .. l ], o -> List( [ 1 .. m_target[o] ], i -> H[o][i] * conjugates[componentpos[o][i]] ) );
         
         return MorphismConstructor( SkeletalFinLeftGSets, target, Pair( map, mor ), coequalizer );
         
